@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae - Shahanaz Akhter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+
+        .cv-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 0 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4a6fa5;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(74, 111, 165, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0.85;
+            font-size: 18px;
+        }
+
+        .print-button:hover {
+            background: #3a5a8a;
+            transform: scale(1.05);
+            box-shadow: 0 3px 12px rgba(74, 111, 165, 0.4);
+            opacity: 1;
+        }
+
+        .print-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #4a6fa5 100%);
+            padding: 40px 30px;
+            color: white;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .profile-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: #fff;
+            border: 4px solid #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #4a6fa5;
+            font-weight: bold;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header-text {
+            flex: 1;
+        }
+
+        .name-title {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .role-title {
+            font-size: 18px;
+            color: #e8e8e8;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .contact-item svg {
+            flex-shrink: 0;
+            color: #c5d5ea;
+        }
+
+        .contact-info a {
+            color: #c5d5ea;
+            text-decoration: none;
+        }
+
+        .main-content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 28px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #4a6fa5;
+            color: #2c3e50;
+        }
+
+        .section-content {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        .education-item, .info-item {
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 3px solid #4a6fa5;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .education-item strong, .info-item strong {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .education-item p, .info-item p {
+            margin-left: 0;
+            line-height: 1.6;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 10px 20px;
+            font-size: 14px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .info-value {
+            text-align: left;
+        }
+
+        .signature-section {
+            margin-top: 40px;
+            text-align: right;
+            padding-right: 20px;
+        }
+
+        .signature-container {
+            display: inline-block;
+            text-align: center;
+        }
+
+        .signature-image {
+            display: block;
+            width: 200px;
+            height: 60px;
+            margin-bottom: 5px;
+            object-fit: contain;
+        }
+
+        .signature-line {
+            display: block;
+            width: 200px;
+            border-top: 1px solid #2c3e50;
+            padding-top: 8px;
+            font-weight: 500;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .skill-tag {
+            background: #f0f4f8;
+            border: 1px solid #d0ddee;
+            padding: 6px 12px;
+            font-size: 13px;
+            border-radius: 4px;
+        }
+
+        /* Print optimization classes - applied via JS */
+        .print-optimized .section {
+            margin-bottom: 18px !important;
+        }
+
+        .print-optimized .section-content {
+            font-size: 12px !important;
+            line-height: 1.5 !important;
+        }
+
+        .print-optimized .section-title {
+            font-size: 15px !important;
+            margin-bottom: 10px !important;
+        }
+
+        .print-optimized .education-item,
+        .print-optimized .info-item {
+            margin-bottom: 10px !important;
+            padding-left: 10px !important;
+        }
+
+        .print-optimized .info-grid {
+            grid-template-columns: 150px 1fr !important;
+            gap: 8px 15px !important;
+            font-size: 12px !important;
+        }
+
+        .print-optimized .skill-tag {
+            padding: 4px 8px !important;
+            font-size: 11px !important;
+        }
+
+        .print-optimized .main-content {
+            padding: 20px !important;
+        }
+
+        .print-optimized .header-section {
+            padding: 25px 20px !important;
+        }
+
+        .print-optimized .profile-photo {
+            width: 100px !important;
+            height: 100px !important;
+        }
+
+        .print-optimized .name-title {
+            font-size: 26px !important;
+        }
+
+        .print-optimized .role-title {
+            font-size: 15px !important;
+        }
+
+        .print-optimized .contact-info {
+            font-size: 12px !important;
+        }
+
+        @media print {
+            body {
+                background: #fff;
+                padding: 0;
+            }
+
+            .print-button {
+                display: none !important;
+            }
+
+            .cv-container {
+                max-width: 100%;
+                margin: 0;
+                box-shadow: none;
+            }
+
+            .header-section {
+                background: #2c3e50 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                color-adjust: exact;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            .education-item {
+                page-break-inside: avoid;
+            }
+            
+            .signature-section {
+                page-break-inside: avoid;
+            }
+
+            @page {
+                size: A4;
+                margin: 10mm;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .print-button {
+                top: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+
+            .header-section {
+                padding: 25px 20px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .name-title {
+                font-size: 26px;
+            }
+
+            .role-title {
+                font-size: 16px;
+            }
+
+            .main-content {
+                padding: 20px 15px;
+            }
+
+            .section-title {
+                font-size: 16px;
+            }
+
+            .section-content {
+                font-size: 13px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .info-label {
+                margin-top: 10px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .print-button {
+                display: none;
+            }
+
+            .header-section {
+                padding: 20px 15px;
+            }
+
+            .profile-photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .name-title {
+                font-size: 22px;
+            }
+
+            .role-title {
+                font-size: 14px;
+            }
+
+            .main-content {
+                padding: 15px 10px;
+            }
+
+            .section-title {
+                font-size: 15px;
+            }
+
+            .section-content {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" title="Print CV" aria-label="Print CV">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+    </button>
+
+    <div class="cv-container">
+        <div class="header-section">
+            <div class="header-content">
+                <div class="profile-photo">
+                    <img src="src/picture.png" alt="Shahanaz Akhter" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </div>
+                <div class="header-text">
+                    <div class="name-title">Shahanaz Akhter</div>
+                    <div class="role-title">MA in English Literature</div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            House 18, Road 2, Block C, Bonosree, Rampura, Dhaka 1219
+                        </div>
+                        <div class="contact-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            +8801816012915 • +8801755077701
+                        </div>
+                        <div class="contact-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <a href="mailto:shahanaz4khter@gmail.com">shahanaz4khter@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="section">
+                <div class="section-title">Career Objective</div>
+                <div class="section-content">
+                    I want to build a good career in a respected organization where I can use my knowledge and skills while growing professionally.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Professional Summary</div>
+                <div class="section-content">
+                    I have an MA in English Literature and training in Fine Arts. I am a good communicator who can adapt to different environments. I speak and write both Bengali and English well.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Education</div>
+                <div class="section-content">
+                    <div class="education-item">
+                        <strong>Chittagong Government College, Chittagong</strong>
+                        <p>Master of Arts in English Literature<br>
+                        Third Division | Completed: 2009</p>
+                    </div>
+
+                    <div class="education-item">
+                        <strong>Government Zia Women's College, Feni</strong>
+                        <p>Bachelor's Degree in Fine Arts<br>
+                        Second Division | Completed: 2005</p>
+                    </div>
+
+                    <div class="education-item">
+                        <strong>Government Zia Women's College, Feni</strong>
+                        <p>Higher Secondary Certificate (HSC) - Arts Group<br>
+                        First Division | Completed: 2001</p>
+                    </div>
+
+                    <div class="education-item">
+                        <strong>North Alipur High School, Feni</strong>
+                        <p>Secondary School Certificate (SSC) - Arts Group<br>
+                        First Division | Completed: 1999</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Technical Skills</div>
+                <div class="section-content">
+                    <div class="skill-list">
+                        <div class="skill-tag">Windows Operating Systems</div>
+                        <div class="skill-tag">Microsoft Office</div>
+                        <div class="skill-tag">Document Processing</div>
+                        <div class="skill-tag">Data Entry</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Core Skills</div>
+                <div class="section-content">
+                    <div class="skill-list">
+                        <div class="skill-tag">English Literature & Language</div>
+                        <div class="skill-tag">Fine Arts</div>
+                        <div class="skill-tag">Communication Skills</div>
+                        <div class="skill-tag">Cultural Awareness</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Interests & Activities</div>
+                <div class="section-content">
+                    I enjoy sports and recreational activities. I like reading and learning new things. I am interested in different cultures and helping in community activities.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Strengths</div>
+                <div class="section-content">
+                    I work well in different environments. I learn quickly and adapt easily. I am good at working with others and always try to improve.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Languages</div>
+                <div class="section-content">
+                    <strong>Bengali:</strong> Native language<br>
+                    <strong>English:</strong> Fluent in reading, writing, and speaking
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Personal Information</div>
+                <div class="section-content">
+                    <div class="info-grid">
+                        <div class="info-label">Name:</div>
+                        <div class="info-value">Shahanaz Akhter</div>
+                        
+                        <div class="info-label">Father's Name:</div>
+                        <div class="info-value">Jafor Ahmed</div>
+                        
+                        <div class="info-label">Mother's Name:</div>
+                        <div class="info-value">Josne Ara Begum</div>
+                        
+                        <div class="info-label">Present Address:</div>
+                        <div class="info-value">House 18, Road 2, Block C, Bonosree, Rampura, Dhaka 1219</div>
+                        
+                        <div class="info-label">Permanent Address:</div>
+                        <div class="info-value">New Patwary Bari, North Alipur, Beker Bazar, Dagon Bhuiyan, Feni</div>
+                        
+                        <div class="info-label">Date of Birth:</div>
+                        <div class="info-value">January 1, 1982</div>
+                        
+                        <div class="info-label">Passport No:</div>
+                        <div class="info-value">A20963805</div>
+                        
+                        <div class="info-label">Marital Status:</div>
+                        <div class="info-value">Married</div>
+                        
+                        <div class="info-label">Nationality:</div>
+                        <div class="info-value">Bangladeshi</div>
+                        
+                        <div class="info-label">Religion:</div>
+                        <div class="info-value">Islam</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="signature-section">
+                <div class="signature-container">
+                    <img src="src/signature.png" alt="Signature" class="signature-image">
+                    <div class="signature-line">
+                        Shahanaz Akhter
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const printButton = document.querySelector('.print-button');
+            const cvContainer = document.querySelector('.cv-container');
+            
+            // Print button functionality
+            printButton.addEventListener('click', function() {
+                applyPrintOptimization();
+                setTimeout(() => {
+                    window.print();
+                }, 100);
+            });
+            
+            // Hide print button when Ctrl+P is pressed
+            document.addEventListener('keydown', function(e) {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                    e.preventDefault();
+                    printButton.style.display = 'none';
+                    applyPrintOptimization();
+                    setTimeout(() => {
+                        window.print();
+                    }, 100);
+                }
+            });
+            
+            // Show print button again after printing and reset styles
+            window.addEventListener('afterprint', function() {
+                printButton.style.display = 'flex';
+                removePrintOptimization();
+            });
+            
+            // Hide print button on mobile if it overlaps with CV
+            function checkPrintButtonPosition() {
+                if (window.innerWidth <= 480) {
+                    const cvRect = cvContainer.getBoundingClientRect();
+                    const buttonRect = printButton.getBoundingClientRect();
+                    
+                    if (buttonRect.right > cvRect.left && buttonRect.bottom > cvRect.top) {
+                        printButton.style.display = 'none';
+                    }
+                } else {
+                    printButton.style.display = 'flex';
+                }
+            }
+            
+            // Print optimization magic
+            function applyPrintOptimization() {
+                // Add print-optimized class to compress everything
+                cvContainer.classList.add('print-optimized');
+                
+                // Additional JS optimizations
+                const sections = document.querySelectorAll('.section');
+                sections.forEach(section => {
+                    section.style.marginBottom = '15px';
+                });
+                
+                // Compress skill tags further
+                const skillTags = document.querySelectorAll('.skill-tag');
+                skillTags.forEach(tag => {
+                    tag.style.margin = '2px';
+                    tag.style.padding = '3px 6px';
+                });
+                
+                // Reduce line heights for print
+                const contents = document.querySelectorAll('.section-content, .education-item p, .info-item p');
+                contents.forEach(content => {
+                    content.style.lineHeight = '1.4';
+                });
+            }
+            
+            function removePrintOptimization() {
+                cvContainer.classList.remove('print-optimized');
+                
+                // Reset any inline styles
+                const sections = document.querySelectorAll('.section');
+                sections.forEach(section => {
+                    section.style.marginBottom = '';
+                });
+                
+                const skillTags = document.querySelectorAll('.skill-tag');
+                skillTags.forEach(tag => {
+                    tag.style.margin = '';
+                    tag.style.padding = '';
+                });
+                
+                const contents = document.querySelectorAll('.section-content, .education-item p, .info-item p');
+                contents.forEach(content => {
+                    content.style.lineHeight = '';
+                });
+            }
+            
+            // Initial check and on resize
+            checkPrintButtonPosition();
+            window.addEventListener('resize', checkPrintButtonPosition);
+        });
+    </script>
+</body>
+</html>
